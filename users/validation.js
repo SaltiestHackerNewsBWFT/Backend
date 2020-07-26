@@ -3,5 +3,5 @@ module.exports = {
   };
   
   function isValid(profile) {
-    return Boolean(profile.username && profile.email && profile.password && typeof profile.password === "string");
+    return Boolean( profile.email && profile.password && typeof profile.password === "string");
   }

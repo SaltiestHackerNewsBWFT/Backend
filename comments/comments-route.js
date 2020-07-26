@@ -2,35 +2,9 @@ const axios = require('axios')
 
 const router = require('express').Router()
 
-const commentsApi = [
-    {
-        url: 'http://hn.algolia.com/api/v1/search_by_date?query=comment'
-    }
-]
 
 router.get('/', (req, res)=>{
-
-    // const getComments = commentsApi.map( async comments =>{
-
-    //     const data = await axios({
-    //         url: comments.url,
-    //         method: 'GET',
-    //         headers: {
-    //             accept: 'application/json'
-    //         }
-    //     })
-
-    //     return {
-
-    //         url: comments.url,
-    //         name:  data.author,
-    //         description: data.comment_text
-    //     }
-    // })
-
-
-
-    const requestOptions ={
+const requestOptions ={
         headers: {accept: 'application/json'},
     }
 
