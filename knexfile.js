@@ -1,4 +1,5 @@
 // Update with your config settings.
+const pgConnection = process.env.DATABASE_URL || "postgresql://postgres@localhost/hobbits";
 
 module.exports = {
 
@@ -52,7 +53,10 @@ module.exports = {
     },
     migrations: {
       tableName: 'knex_migrations'
-    }
+    },
+    seeds: {
+      directory: "./database/seeds",
+    },
   }
 
 };
