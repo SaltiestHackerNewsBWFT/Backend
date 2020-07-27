@@ -1,15 +1,24 @@
 const db = require("../data/dbConfig");
+const { select } = require("../data/dbConfig");
 
 module.exports = {
     add,
     find,
+    findinfo,
     findById,
     findComments,
     findBy,
+    update,
+    remove,
 };
 
 function find() {
     return db("profile as p")
+        .orderBy("p.id");
+}
+function findinfo() {
+    return db("profile as p")
+        .select('p.id', 'p.username', 'p.email')
         .orderBy("p.id");
 }
 
@@ -39,4 +48,18 @@ function findComments(id){
     .select('profile.username', 'profile.email', 'comments.comment', 'comments.troll_name', 'comments.karma')
     .where('profile.id', id)
     .orderBy('comments.karma')
+}
+
+function update(id, changes) {
+    return db('profile')
+        .where({id})
+        .update(changes)
+}
+
+
+
+function remove(id) {
+return db('profile')
+    .where('id',id)
+    .del()
 }
