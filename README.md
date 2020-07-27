@@ -81,7 +81,7 @@ returns
 }
 
 Get
-https://hackernewsbw31.herokuapp.com/api/profile/1/comments
+https://hackernewsbw31.herokuapp.com/api/profile/:id/comments
 get comments from specific profile(use params)----Dummy data
 returns
 --[
@@ -101,7 +101,7 @@ returns
     }
 ]
 Get
-https://hackernewsbw31.herokuapp.com/api/comments
+https://hackernewsbw31.herokuapp.com/api/comments/data
 get list of comments from haker news api-can map through for data you need---Dummy data
 returns
 --[
@@ -154,10 +154,64 @@ returns
 ]
 
 Delete
-https://hackernewsbw31.herokuapp.com/api/profile/5
+https://hackernewsbw31.herokuapp.com/api/profile/:id
 deletes user profile by id(use params)---
 
 Put
-https://hackernewsbw31.herokuapp.com/api/profile/4
+https://hackernewsbw31.herokuapp.com/api/profile/:id
 updates user info---will not update email address if its the same one thats already in the db. you are able to update the username seperatly 
+
+
+Get
+https://hackernewsbw31.herokuapp.com/api/comments/
+gets a list of all comments
+returns
+--
+[
+    {
+        "id": 1,
+        "troll_name": "troll1",
+        "comment": "full of troll like comments1",
+        "karma": 750,
+        "profile_id": 1
+    },
+    {
+        "id": 2,
+        "troll_name": "troll2",
+        "comment": "full of troll like comments2",
+        "karma": 300,
+        "profile_id": 1
+    }
+   ]
+   
+   Get
+   https://hackernewsbw31.herokuapp.com/api/comments/:id
+   gets a list of comments by its id(use params)
+   returns
+   --
+   {
+    "id": 1,
+    "troll_name": "troll1",
+    "comment": "full of troll like comments1",
+    "karma": 750,
+    "profile_id": 1
+}
+
+Post
+https://hackernewsbw31.herokuapp.com/api/comments
+lets you post or save comments
+current input structure
+{
+    
+    "troll_name": "troll365",
+    "comment": "full of troll like comments1",
+    "karma": 400,
+    "profile_id": 2
+}
+
+Delete
+https://hackernewsbw31.herokuapp.com/api/comments/:id
+delets comment by id(use params)
+
+
 
