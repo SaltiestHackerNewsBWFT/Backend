@@ -34,6 +34,26 @@ router.get('/profile', (req, res) =>{
     .catch(err => res.send(err))
 })
 
+//Gets profile info by id
+router.get('/:id', (req, res) => {
+    Profile.findById(req.params.id)
+    .then(profile => {
+      if (profile) {
+        res.status(200).json(profile);
+      } else {
+        res.status(404).json({ message: 'Hub not found' });
+      }
+    })
+    .catch(error => {
+      // log error to server
+      console.log(error);
+      res.status(500).json({
+        message: 'Error retrieving the profile',
+      });
+    });
+  });
+
+
 // get comments from specific user throught params
 
 router.get('/:id/comments', (req, res) =>{

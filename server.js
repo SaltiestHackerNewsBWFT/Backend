@@ -15,7 +15,7 @@ configMiddleware(server)
 server.use('/api/comments', commentRouter)
 
 server.get("/", (req, res) => {
-    res.json({ api: "up" });
+    res.json("server is up");
   });
 
  
