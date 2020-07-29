@@ -9,31 +9,31 @@ module.exports = {
 };
 
 function get() {
-  return db('favorites');
+  return db('comments');
 }
 
 function getById(id) {
-  return db('favorites')
+  return db('comments')
     .where({ id })
     .first();
 }
 
-function insert(favorites) {
-  return db('favorites')
-    .insert(favorites)
+function insert(comments) {
+  return db('comments')
+    .insert(comments)
     .then(ids => {
       return getById(ids[0]);
     });
 }
 
 function update(id, changes) {
-  return db('favorites')
+  return db('comments')
     .where({ id })
     .update(changes);
 }
 
 function remove(id) {
-  return db('favorites')
+  return db('comments')
     .where('id', id)
     .del();
 }

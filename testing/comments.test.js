@@ -13,7 +13,7 @@ describe("server test", function () {
 
     describe("GET /", function () {
         it("should respond with 200 OK", function () {
-            return supertest(server)
+            return supertest(comments)
                 .get("/")
                 .then(res => {
                     expect(res.status).toBe(200);
@@ -21,7 +21,7 @@ describe("server test", function () {
         });
 
         it("should respond with JSON", function () {
-            return supertest(server)
+            return supertest(comments)
                 .get("/")
                 .then(res => {
                     expect(res.type).toMatch(/json/i);
@@ -29,7 +29,7 @@ describe("server test", function () {
         });
 
         it("should respond with api: 'server is up'", function () {
-            return supertest(server)
+            return supertest(comments)
                 .get("/")
                 .then(res => {
                     expect(res.body).toBe('server is up');

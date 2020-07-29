@@ -1,8 +1,18 @@
 const router = require('express').Router();
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const passport = require('passport')
 const Profile = require('../users/profileModel')
 const {isValid} = require('../users/validation')
+
+// client ID  787519690058-qiea5frv3ehhppcj8ihhas8ovcl26que.apps.googleusercontent.com
+// client secret  -vkNXrE3Mo0aIzqPLhkDUi56
+
+
+
+
+
+
 
 router.post('/register', (req, res) => {
   const credentials = req.body;
